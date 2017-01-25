@@ -1,0 +1,6 @@
+odrive-linux-agent for Debian
+----------------------------
+
+this package is used to pack the officical odrive-agent stuff.
+
+ -- Alex Tu <alex.tu@canonical.com>  Tue, 24 Jan 2017 16:58:59 +0800
