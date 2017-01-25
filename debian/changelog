@@ -1,5 +1,5 @@
-odrive-linux-agent (0.1-1) unstable; urgency=medium
+odrive-linux-agent (0.1~916-d0265) xenial; urgency=medium
 
-  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial release
 
  -- Alex Tu <alex.tu@canonical.com>  Tue, 24 Jan 2017 16:58:59 +0800

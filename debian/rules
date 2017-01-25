@@ -13,18 +13,19 @@
 # package maintainers to append LDFLAGS
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
+version=$(shell dpkg-parsechangelog | awk -F'[~-]' '/^Version/ {print $$2}')
+dirname_x86=odriveagent-linux-64bit-$(version)_64bit
+filename_x86=$(dirname_x86).tar.gz
 
 %:
-	dh $@ 
+	dh $@
 
-filename_x86=odriveagent-linux-64bit-$(shell dpkg-parsechangelog | sed 's/^Source://p')_64bit.tar.gz
-dirname_x86=
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
 override_dh_auto_configure:
-#	dh_auto_configure -- #	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
 ifeq ($(DEB_BUILD_ARCH),amd64)
-|   sh tar zxvf $(filename_x86) -C $(dirname_x86)
+	mkdir -p $(dirname_x86)
+	tar zxvf $(filename_x86) -C $(dirname_x86)
 endif
 
 
